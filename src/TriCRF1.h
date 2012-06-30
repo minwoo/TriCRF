@@ -2,7 +2,7 @@
  * Copyright (C) 2010 Minwoo Jeong (minwoo.j@gmail.com).
  * This file is part of the "TriCRF" distribution.
  * http://github.com/minwoo/TriCRF/
- * This software is provided under the terms of LGPL.
+ * This software is provided under the terms of Modified BSD license: see LICENSE for the detail.
  */
 
 #ifndef __TRICRF1_H__
