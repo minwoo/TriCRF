@@ -1,2 +1,4 @@
 Release
 [o]
+src/*.o
+src/tricrf
