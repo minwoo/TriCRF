@@ -4,10 +4,15 @@ libdir.x86_64 = /usr/lib64
 libdir.i686 = /usr/lib
 
 MACHINE := $(shell uname -m)
+UNAME_S := $(shell uname -s)
 
 CC=g++
 CFLAGS=-I . -I /usr/include/ -g -O2
-LIBS = -L$(libdir.$(MACHINE))
+ifeq ($(UNAME_S),Darwin)
+	LIBS = -L/usr/lib
+else
+	LIBS = -L$(libdir.$(MACHINE))
+endif
 
 %.o:	%.cpp
 	$(CC) -c -o $@ $(CFLAGS) $<
