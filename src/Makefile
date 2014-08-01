@@ -1,8 +1,18 @@
 .SUFFIXES: .c .cpp
 
-CC=g++-4.0
+libdir.x86_64 = /usr/lib64
+libdir.i686 = /usr/lib
+
+MACHINE := $(shell uname -m)
+UNAME_S := $(shell uname -s)
+
+CC=g++
 CFLAGS=-I . -I /usr/include/ -g -O2
-LIBS = -L/usr/lib  
+ifeq ($(UNAME_S),Darwin)
+	LIBS = -L/usr/lib
+else
+	LIBS = -L$(libdir.$(MACHINE))
+endif
 
 %.o:	%.cpp
 	$(CC) -c -o $@ $(CFLAGS) $<
@@ -16,8 +26,8 @@ LIBS = -L/usr/lib
 target = tricrf
 all: $(target)
 
-tricrf: Main.o tricrf1.o tricrf2.o tricrf3.o crf.o maxent.o evaluator.o param.o data.o lbfgs.o utility.o
-	$(CC) -o $@ Main.o tricrf1.o tricrf2.o tricrf3.o crf.o maxent.o evaluator.o param.o data.o lbfgs.o utility.o $(CFLAGS) $(LIBS)
+tricrf: Main.o TriCRF1.o TriCRF2.o TriCRF3.o CRF.o MaxEnt.o Evaluator.o Param.o Data.o LBFGS.o Utility.o
+	$(CC) -o $@ Main.o TriCRF1.o TriCRF2.o TriCRF3.o CRF.o MaxEnt.o Evaluator.o Param.o Data.o LBFGS.o Utility.o $(CFLAGS) $(LIBS)
 	
 clean:
 	rm $(target) *.o 

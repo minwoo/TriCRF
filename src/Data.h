@@ -64,7 +64,7 @@ class Data : public std::vector<T> {
 private:
 	size_t n_element;
 public:
-	void append(T element) { push_back(element); n_element += element.size(); };
+	void append(T element) { this->push_back(element); n_element += element.size(); };
 	size_t size_element() { return n_element; };
 };
 

@@ -18,6 +18,7 @@
 #include <cfloat>
 #include <fstream>
 #include <stdarg.h>
+#include <limits>
 
 namespace tricrf {
 

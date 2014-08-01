@@ -1457,7 +1457,7 @@ bool TriCRF3::test(const std::string& filename, const std::string& outputfile, b
 	test_eval2.initialize(); 
 	
 	/////// for MULTI-DOMAIN SLU evaluation 2008. 4. 30
-	Evaluator evals[m_ParamTopic.sizeStateVec()];
+	Evaluator *evals = new Evaluator[m_ParamTopic.sizeStateVec()];
 	for (size_t i = 0; i < m_ParamTopic.sizeStateVec(); i++) {
 		evals[i].encode(m_ParamSeq[i]);
 		evals[i].initialize();
