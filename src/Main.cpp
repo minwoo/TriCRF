@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 

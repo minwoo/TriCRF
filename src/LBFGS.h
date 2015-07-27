@@ -46,7 +46,8 @@ namespace tricrf {
     void clear();
 
     int optimize(size_t size, double *x, double f, double *g, bool orthant, double C) {
-      static const int msize = 5;
+      // increase this parameter to use more memory but also cut down the number of training iterations
+      static const int msize = 100;
       if (w_.empty()) {
         iflag_ = 0;
         w_.resize(size * (2 * msize + 1) + 2 * msize);
